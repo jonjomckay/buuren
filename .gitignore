@@ -50,3 +50,5 @@ pkg
 
 # For RubyMine
 .idea
+
+Gemfile.lock
