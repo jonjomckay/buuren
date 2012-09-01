@@ -123,16 +123,16 @@ class Buuren::Decks
     duration
   end
 
-  def self.volume
+  def volume
     @pipeline.volume
   end
 
-  def self.volume=(volume_in_pc)
+  def volume=(volume_in_pc)
     # TODO: make into a real getter/setter?
     @pipeline.volume = volume_in_pc
   end
 
-  def self.position
+  def position
     begin
       # run query to get current position and convert to milliseconds
       @pipeline.query(@position_query)
@@ -144,7 +144,7 @@ class Buuren::Decks
     position
   end
 
-  def self.position=(position_in_ms)
+  def position=(position_in_ms)
     @pipeline.send_event(Gst::EventSeek.new(1.0, Gst::Format::Type::TIME, Gst::Seek::FLAG_FLUSH.to_i | Gst::Seek::FLAG_KEY_UNIT.to_i, Gst::Seek::TYPE_SET, position_in_ms * 1000000, Gst::Seek::TYPE_NONE, -1))
   end
 end
